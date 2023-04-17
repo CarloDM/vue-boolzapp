@@ -36,17 +36,19 @@
 
         <div class="chats_nav debug">
           
-          <div class="contact debug">
+          <div class="contact debug"
+              v-for="(contact, index) in contacts"         
+          >
 
-            <div class="avatar debug"><img src="" alt=""></div>
+            <div class="avatar debug"><img :src="contact.avatar" alt=""></div>
 
             <div class="chat_info debug">
               <div class="chat_name_last_msg debug">
-                <h3>nome contatto</h3>
-                <span>ultimo messaggio inviato</span>
+                <h3>{{contact.name}}</h3>
+                <span>{{contact.messages[contact.messages.length - 1].message}}</span>
               </div>
               <div class="chat_date debug">
-                <span>12:00</span>
+                <span>{{contact.messages[contact.messages.length - 1].date}}</span>
               </div>
             </div>
 
