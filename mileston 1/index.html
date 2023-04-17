@@ -76,7 +76,7 @@
             class="msg"
             :class="{'user_msg' : message.status == 'sent'},{'contact_msg' : message.status == 'received'}">
             <span>{{message.message}}</span>
-            <span class="hour">12:00</span>
+            <span class="hour">{{message.date}}</span>
           </div>
 
         </div>
