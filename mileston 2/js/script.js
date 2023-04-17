@@ -171,7 +171,7 @@ createApp({
   },
 
   methods : {
-    click(ind) {
+    activeChat(ind) {
       this.chatIndex = ind
       console.log('ciao' ,this.chatIndex)
     },

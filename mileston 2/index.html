@@ -38,7 +38,7 @@
           
           <div class="contact debug"
               v-for="(contact, index) in contacts"
-              @click="click(index)"
+              @click="activeChat(index)"
               :class="{'active' : chatIndex == index}"         
           >
 
