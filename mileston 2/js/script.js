@@ -166,11 +166,18 @@ createApp({
       }
       ],
       userImg : 'img/avatar_io.jpg',
-
+      chatIndex : 0,
     }
   },
 
-  method : {
+  methods : {
+    click(ind) {
+      this.chatIndex = ind
+      console.log('ciao' ,this.chatIndex)
+    },
+
+  },
+  mounted(){
 
   }
 }).mount('#app')

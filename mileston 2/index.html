@@ -37,7 +37,9 @@
         <div class="chats_nav debug">
           
           <div class="contact debug"
-              v-for="(contact, index) in contacts"         
+              v-for="(contact, index) in contacts"
+              @click="click(index)"
+              :class="{'active' : chatIndex == index}"         
           >
 
             <div class="avatar debug"><img :src="contact.avatar" alt=""></div>
@@ -72,7 +74,7 @@
 
         <div class="chat_main debug">
 
-          <div v-for="message in contacts[0].messages"
+          <div v-for="message in contacts[chatIndex].messages"
             class="msg"
             :class="{'user_msg' : message.status == 'sent'},{'contact_msg' : message.status == 'received'}">
             <span>{{message.message}}</span>

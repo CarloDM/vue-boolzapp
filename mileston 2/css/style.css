@@ -94,6 +94,10 @@ body{
   align-items: center;
   width: 100%;
   height: 60px;
+  opacity: 0.5;
+}
+.chats_nav .contact.active {
+  opacity: 1;
 }
 .chats_nav .chat_info{
   display: flex;
