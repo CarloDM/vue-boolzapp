@@ -164,7 +164,8 @@ createApp({
       }
       ],
       }
-      ]
+      ],
+      userImg : 'img/avatar_io.jpg',
 
     }
   },
