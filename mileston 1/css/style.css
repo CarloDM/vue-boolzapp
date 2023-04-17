@@ -26,6 +26,7 @@ body{
   display: flex;
   width: 85%;
   height: calc(100vh - 40px);
+  background-color: rgb(199, 199, 199);
   overflow: hidden;
 }
 /* cotact bar ------------------ */
@@ -122,7 +123,7 @@ body{
   height: calc(100% - 130px);
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 20px 40px;
+  padding: 30px 40px;
 }
 .chat_main .msg{
   position: relative;
@@ -132,12 +133,19 @@ body{
   margin-bottom: 5px;
   border-radius: 10px;
 }
+.chat_main .msg .hour {
+  display: block;
+  text-align: end;
+  color: rgb(104, 104, 104);
+  font-size: 0.6rem;
+}
 
 .chat_main .user_msg {
   right: -100%;
   transform: translateX(-100%);
   background-color: rgb(96, 219, 92);
 }
+
 .chat_main .contact_msg {
   background-color: rgb(199, 199, 199);
 }
