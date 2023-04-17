@@ -72,14 +72,11 @@
 
         <div class="chat_main debug">
 
-          <div class="msg user_msg">
-            <span>ciao come va?</span>
+          <div v-for="message in contacts[0].messages"
+            class="msg"
+            :class="{'user_msg' : message.status == 'sent'},{'contact_msg' : message.status == 'received'}">
+            <span>{{message.message}}</span>
             <span class="hour">12:00</span>
-          </div>
-          
-          <div class="msg contact_msg">
-            <span>tutto bene grazie</span>
-            <span class="hour">12:01</span>
           </div>
 
         </div>
