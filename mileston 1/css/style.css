@@ -6,7 +6,15 @@
 body{
   font-family: monospace;
 }
+
 .debug{
   background-color: rgba(255, 0, 0, 0.253);
   border: 1px solid black;
+}
+
+#main_wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(210,210,210);
+  background: linear-gradient(0deg, rgb(210,210,210) 0%, rgb(210,210,210) calc(100% - 105px), rgb(0, 150, 136) calc(100% - 100px), rgb(0, 150, 136) 100%); 
 }
