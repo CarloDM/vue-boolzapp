@@ -86,7 +86,7 @@
             <span class="hour">{{message.date}}</span>
 
             <div class="delete" :class="{'active': messageIndex == index}"
-            @click=""
+            @click="contacts[chatIndex].messages.splice(index,1)"
             >
             cancella messaggio</div>
           </div>
