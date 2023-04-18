@@ -148,6 +148,16 @@ body{
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 10px;
+
+}
+.chat_main .delete{
+  position: absolute;
+  top: -30%;
+  width: 150px;
+  height: 50px;
+  background-color: red;
+  border-radius: 10px;
+
 }
 .chat_main .msg .hour {
   display: block;
