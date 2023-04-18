@@ -169,6 +169,8 @@ createApp({
       userImg : 'img/avatar_io.jpg',
       chatIndex : 0,
       inMessage : '',
+      nowDate : '',
+      autoAnswers : ['ok','va bene', 'no','come preferisci','e se poi te ne penti???','buongiorno']
     }
   },
 
@@ -179,13 +181,27 @@ createApp({
     },
 
     sendMessage(){
-      console.log('key',this.inMessage)
-      message = this.inMessage 
-      date = '01/01/2023' + ' ' + '00:00:00'
-      status = 'sent'
-      outMessage = {date,message,status}
-      this.contacts[this.chatIndex].messages.push(outMessage)
-      console.log('key',this.contacts[this.chatIndex].messages)
+      console.log('key',this.inMessage);
+      message = this.inMessage ;
+      date = '01/01/2023' + ' ' + '00:00:00';
+      status = 'sent';
+      outMessage = {date,message,status};
+      this.contacts[this.chatIndex].messages.push(outMessage);
+      console.log('key',this.contacts[this.chatIndex].messages);
+      this.inMessage = '';
+      setTimeout(() => {
+        this.autoAnswer()
+      }, 300);
+    },
+
+    autoAnswer(){
+      R = Math.floor(Math.random()* this.autoAnswers.length)
+      message = this.autoAnswers[R] ;
+      date = '01/01/2023' + ' ' + '00:00:03';
+      status = 'received';
+      outMessage = {date,message,status};
+      this.contacts[this.chatIndex].messages.push(outMessage);
+      console.log('key',this.contacts[this.chatIndex].messages);
     }
 
   },
