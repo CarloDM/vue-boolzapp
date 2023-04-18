@@ -168,6 +168,7 @@ createApp({
       userName : 'user',
       userImg : 'img/avatar_io.jpg',
       chatIndex : 0,
+      inMessage : '',
     }
   },
 
@@ -176,6 +177,16 @@ createApp({
       this.chatIndex = ind
       console.log('active' ,this.contacts[ind].name)
     },
+
+    sendMessage(){
+      console.log('key',this.inMessage)
+      message = this.inMessage 
+      date = '01/01/2023' + ' ' + '00:00:00'
+      status = 'sent'
+      outMessage = {date,message,status}
+      this.contacts[this.chatIndex].messages.push(outMessage)
+      console.log('key',this.contacts[this.chatIndex].messages)
+    }
 
   },
   mounted(){

@@ -86,7 +86,9 @@
         <div class="chat_send debug">
           <div class="emoticon debug"><span>ic</span></div>
           <div class="input_msg debug">
-            <input id="in_msg" type="text">
+            <input id="in_msg" type="text"
+                    @keyup.enter="sendMessage()"
+                    v-model="inMessage">
           </div>
           <div class="take_audio debug"><span>ic</span></div>
         </div>
