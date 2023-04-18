@@ -173,8 +173,7 @@ createApp({
       nowDate : '',
       autoAnswers : ['ok','va bene', 'no','come preferisci','e se poi te ne penti???','buongiorno'],
       inSearch : '',
-      filteredContancts : [],
-      vai : true,
+
     }
   },
 
