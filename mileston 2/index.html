@@ -18,7 +18,7 @@
 
           <div class="user debug">
             <div class="avatar debug"><img :src="userImg" alt=""></div>
-            <div class="name debug"></div>
+            <div class="name debug"><span>{{userName}}</span></div>
             <div class="options debug">
               <span>ic</span>
               <span>ic</span>
@@ -63,8 +63,8 @@
       <div id="main_bar" class="debug">
 
         <div class="chat_header debug">
-          <div class="avatar debug"><img :src="userImg" alt=""></div>
-          <div class="name debug"></div>
+          <div class="avatar debug"><img :src="contacts[chatIndex].avatar" alt=""></div>
+          <div class="name debug">{{contacts[chatIndex].name}}</div>
           <div class="options debug">
             <span>ic</span>
             <span>ic</span>

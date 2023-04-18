@@ -165,6 +165,7 @@ createApp({
       ],
       }
       ],
+      userName : 'user',
       userImg : 'img/avatar_io.jpg',
       chatIndex : 0,
     }
@@ -173,7 +174,7 @@ createApp({
   methods : {
     activeChat(ind) {
       this.chatIndex = ind
-      console.log('ciao' ,this.chatIndex)
+      console.log('active' ,this.contacts[ind].name)
     },
 
   },
