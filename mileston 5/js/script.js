@@ -173,12 +173,14 @@ createApp({
       nowDate : '',
       autoAnswers : ['ok','va bene', 'no','come preferisci','e se poi te ne penti???','buongiorno'],
       inSearch : '',
+      messageIndex : null,
 
     }
   },
 
   methods : {
     activeChat(ind) {
+      this.messageIndex = null
       this.chatIndex = ind
       console.log('active' ,this.contacts[ind].name)
     },
@@ -209,6 +211,13 @@ createApp({
 
     searchingLog(){
       console.log('sto cercando',  this.inSearch.toUpperCase())
+    },
+
+    toggleCancel(ind){
+      if (this.messageIndex == ind){this.messageIndex = null}
+      else{ this.messageIndex = ind;}
+
+
     }
 
   },

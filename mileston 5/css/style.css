@@ -157,7 +157,10 @@ body{
   height: 50px;
   background-color: red;
   border-radius: 10px;
-
+  display: none;
+}
+.chat_main .delete.active {
+  display: block;
 }
 .chat_main .msg .hour {
   display: block;
