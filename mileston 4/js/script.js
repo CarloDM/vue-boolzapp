@@ -165,12 +165,16 @@ createApp({
       ],
       }
       ],
+
       userName : 'user',
       userImg : 'img/avatar_io.jpg',
       chatIndex : 0,
       inMessage : '',
       nowDate : '',
-      autoAnswers : ['ok','va bene', 'no','come preferisci','e se poi te ne penti???','buongiorno']
+      autoAnswers : ['ok','va bene', 'no','come preferisci','e se poi te ne penti???','buongiorno'],
+      inSearch : '',
+      filteredContancts : [],
+      vai : true,
     }
   },
 
@@ -202,6 +206,10 @@ createApp({
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
       console.log('key',this.contacts[this.chatIndex].messages);
+    },
+
+    searchingLog(){
+      console.log('sto cercando',  this.inSearch.toUpperCase())
     }
 
   },

@@ -101,6 +101,9 @@ body{
 .chats_nav .contact.active {
   opacity: 1;
 }
+.chats_nav .contact.none {
+  display: none;
+}
 .chats_nav .chat_info{
   display: flex;
   justify-content: space-evenly;

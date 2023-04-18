@@ -30,7 +30,7 @@
 
           <div class="search debug">
             <span>ic</span>
-            <input id="in_src" type="text">
+            <input id="in_src" @keyup="searchingLog" v-model="inSearch" type="text">
           </div>
         </div>
 
@@ -39,7 +39,7 @@
           <div class="contact debug"
               v-for="(contact, index) in contacts"
               @click="activeChat(index)"
-              :class="{'active' : chatIndex == index}"         
+              :class="{'active' : chatIndex == index},{'none' : !contact.name.toUpperCase().includes(inSearch.toUpperCase())}"         
           >
 
             <div class="avatar debug"><img :src="contact.avatar" alt=""></div>
