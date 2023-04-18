@@ -78,14 +78,17 @@
 
         <div class="chat_main debug">
 
-          <div v-for="(message, index) in contacts[chatIndex].messages"
+          <div  
+            v-for="(message, index) in contacts[chatIndex].messages"
             @click="toggleCancel(index)"
             class="msg"
             :class="{'user_msg' : message.status == 'sent'},{'contact_msg' : message.status == 'received'}">
+            
             <span>{{message.message}}</span>
             <span class="hour">{{message.date}}</span>
 
-            <div class="delete" :class="{'active': messageIndex == index}"
+            <div v-if=" contacts[chatIndex].messages.length >= 2" 
+            class="delete" :class="{'active': messageIndex == index}"
             @click="contacts[chatIndex].messages.splice(index,1)"
             >
             cancella messaggio</div>
