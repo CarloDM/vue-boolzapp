@@ -1,4 +1,6 @@
+
 const { createApp } = Vue ;
+
 createApp({
   data(){
     return {
@@ -177,6 +179,7 @@ createApp({
 
     }
   },
+  
 
   methods : {
     activeChat(ind) {
@@ -188,11 +191,11 @@ createApp({
     sendMessage(){
       console.log('key',this.inMessage);
       message = this.inMessage ;
-      date = '01/01/2023' + ' ' + '00:00:00';
+      date = this.getDate() +' '+ this.getTime() ;
       status = 'sent';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
-      console.log('key',this.contacts[this.chatIndex].messages);
+      console.log('key',this.contacts[this.chatIndex].messages,this.getDate());
       this.inMessage = '';
       setTimeout(() => {
         this.autoAnswer()
@@ -202,7 +205,7 @@ createApp({
     autoAnswer(){
       R = Math.floor(Math.random()* this.autoAnswers.length)
       message = this.autoAnswers[R] ;
-      date = '01/01/2023' + ' ' + '00:00:03';
+      date = this.getDate() +' '+ this.getTime() ;
       status = 'received';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
@@ -216,7 +219,21 @@ createApp({
     toggleCancel(ind){
       if (this.messageIndex == ind){this.messageIndex = null}
       else{ this.messageIndex = ind;}
-    }
+    },
+
+    getTime(){
+      const now = new Date();
+      time = now.toLocaleTimeString()
+      console.log(time)
+      return time
+    },
+
+    getDate(){
+      const now = new Date();
+      date = now.toLocaleDateString()
+      console.log(date)
+      return date
+    },
 
   },
   mounted(){
