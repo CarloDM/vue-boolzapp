@@ -13,7 +13,8 @@ createApp({
       {
       date: '10/01/2020 15:30:55',
       message: 'Hai portato a spasso il cane?',
-      status: 'sent'
+      status: 'sent',
+
       },
       {
       date: '10/01/2020 15:50:00',
@@ -195,7 +196,9 @@ createApp({
       status = 'sent';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
-      console.log('key',this.contacts[this.chatIndex].messages,this.getDate());
+      console.log('key',this.contacts[this.chatIndex].messages, this.getDate());
+      this.contacts[this.chatIndex].messages[this.contacts[this.chatIndex].messages.length]
+      this.stampDateTimeCompareNumb(this.chatIndex, this.contacts[this.chatIndex].messages.length - 1)
       this.inMessage = '';
       setTimeout(() => {
         this.autoAnswer()
@@ -209,6 +212,7 @@ createApp({
       status = 'received';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
+      this.stampDateTimeCompareNumb(this.chatIndex, this.contacts[this.chatIndex].messages.length - 1);
       console.log('key',this.contacts[this.chatIndex].messages);
     },
 
@@ -235,9 +239,9 @@ createApp({
       return date
     },
 
-    chatOrder(){
-      console.log(this.contacts[0].messages[0].date)
-      dataIn = this.contacts[0].messages[0].date;
+    stampDateTimeCompareNumb(contactInd,messageIndex){
+
+      dataIn = this.contacts[contactInd].messages[messageIndex].date;
       dataTime = dataIn.split(' ')
       time = dataTime[1]
       TimeForCompare = time.split(':')
@@ -245,6 +249,7 @@ createApp({
       min = TimeForCompare[1]
       sec = TimeForCompare[2]
       timeCompare = parseInt(hour + min + sec)
+      this.contacts[contactInd].messages[messageIndex].timeCompare = timeCompare
 
       date = dataTime[0]
       dateForCompare = date.split('/')
@@ -252,13 +257,26 @@ createApp({
       mount = dateForCompare[1]
       year = dateForCompare[2]
       dateCompare = parseInt(year + mount + day)
+      this.contacts[contactInd].messages[messageIndex].dateCompare = dateCompare
+    
+      console.log(this.contacts[contactInd].messages[messageIndex],timeCompare , dateCompare )
+    },
 
-      
-      console.log(dataIn.split(' '),TimeForCompare,parseInt(hour + min + sec),dateCompare )
+    stampCompare(){
+      console.log()
+      for (let conta = 0; conta < this.contacts.length ; conta++) {
+        console.log(conta)
+        for (let mes = 0; mes < this.contacts[conta].messages.length ; mes++) {
+          console.log('mes',mes)
+          this.stampDateTimeCompareNumb(conta,mes)        
+        }       
+      }
+      // this.stampDateTimeCompareNumb(0,1)
     }
 
   },
   mounted(){
+    this.stampCompare()
 
   }
 }).mount('#app')
