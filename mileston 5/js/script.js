@@ -216,8 +216,6 @@ createApp({
     toggleCancel(ind){
       if (this.messageIndex == ind){this.messageIndex = null}
       else{ this.messageIndex = ind;}
-
-
     }
 
   },
