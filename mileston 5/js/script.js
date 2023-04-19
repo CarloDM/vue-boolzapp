@@ -235,6 +235,28 @@ createApp({
       return date
     },
 
+    chatOrder(){
+      console.log(this.contacts[0].messages[0].date)
+      dataIn = this.contacts[0].messages[0].date;
+      dataTime = dataIn.split(' ')
+      time = dataTime[1]
+      TimeForCompare = time.split(':')
+      hour = TimeForCompare[0]
+      min = TimeForCompare[1]
+      sec = TimeForCompare[2]
+      timeCompare = parseInt(hour + min + sec)
+
+      date = dataTime[0]
+      dateForCompare = date.split('/')
+      day = dateForCompare[0]
+      mount = dateForCompare[1]
+      year = dateForCompare[2]
+      dateCompare = parseInt(year + mount + day)
+
+      
+      console.log(dataIn.split(' '),TimeForCompare,parseInt(hour + min + sec),dateCompare )
+    }
+
   },
   mounted(){
 
