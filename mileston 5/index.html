@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>vue-boolzapp</title>
 </head>
 <body>
@@ -20,14 +23,14 @@
             <div class="avatar debug"><img :src="userImg" alt=""></div>
             <div class="name debug"><span>{{userName}}</span></div>
             <div class="options debug">
-              <span>ic</span>
-              <span>ic</span>
-              <span>ic</span>
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </div>
           </div>
 
           <div class="notifications debug">
-            <div class="icon"></div>
+            <div class="icon"><i class="fas fa-bell-slash"></i></div>
             <div class="link">
               <span>ricevi notifiche di nuovi messaggi</span> <br>
               <a href="#">attiva notifiche desktop</a>
@@ -76,18 +79,17 @@
           <div class="avatar debug"><img :src="contacts[chatIndex].avatar" alt=""></div>
           <div class="name debug">{{contacts[chatIndex].name}}</div>
           <div class="options debug">
-            <span>ic</span>
-            <span>ic</span>
-            <span>ic</span>
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
 
         <div class="chat_main debug">
 
-          <div  
+          <div class="msg"
             v-for="(message, index) in contacts[chatIndex].messages"
             @click="toggleCancel(index)"
-            class="msg"
             :class="{'user_msg' : message.status == 'sent'},{'contact_msg' : message.status == 'received'}">
             
             <span>{{message.message}}</span>
@@ -103,13 +105,13 @@
         </div>
 
         <div class="chat_send debug">
-          <div class="emoticon debug"><span>ic</span></div>
+          <div class="emoticon debug"><i class="far fa-smile"></i></div>
           <div class="input_msg debug">
             <input id="in_msg" type="text"
                     @keyup.enter="sendMessage()"
                     v-model="inMessage">
           </div>
-          <div class="take_audio debug"><span>ic</span></div>
+          <div class="take_audio debug"><i class="fas fa-microphone"></i></div>
         </div>
 
       </div>

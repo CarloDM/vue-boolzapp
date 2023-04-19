@@ -12,6 +12,14 @@ body{
   /* border: 1px solid black; */
 }
 
+i{
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.301);
+}
+i:hover{
+  color: rgba(0, 0, 0, 0.705);
+}
+
 #main_wrapper {
   display: flex;
   justify-content: center;
@@ -91,13 +99,18 @@ body{
   width: 100%;
   height: 70px;
   background-color: rgb(142, 218, 252);
+  overflow: hidden;
 }
 .user_nav .notifications .icon{
   width: 60px;
   height: 60px;
-  margin: 0px 5px;
+  margin: 0px 10px;
   border-radius: 50%;
   background-color: azure;
+  
+}
+.user_nav .notifications .link{
+
 }
 .user_nav .search {
   display: flex;
