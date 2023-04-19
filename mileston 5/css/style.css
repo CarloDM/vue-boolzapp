@@ -164,15 +164,11 @@ body{
   border-radius: 10px;
   cursor: pointer;
   
-/*   
-  clip-path: polygon( 0% 15%, 90% 15%, 90% 0%,
+  
+  clip-path: polygon( 0% 0%, 90% 0%,
                       95%  0%, 100% 20%,
-
-                      100% 20%,98% 20%, 98% 50%,100% 50%,
-
                       100% 100%,
-                      5% 100%, 0% 80%);
-                       */
+                      5% 100%, 0% 80%);                    
 }
 .chat_main .delete{
   position: absolute;
