@@ -190,13 +190,13 @@ createApp({
     },
 
     sendMessage(){
-      console.log('key',this.inMessage);
+      console.warn('messaggio inviato: ',this.inMessage);
       message = this.inMessage ;
       date = this.getDate() +' '+ this.getTime() ;
       status = 'sent';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
-      console.log('key',this.contacts[this.chatIndex].messages, this.getDate());
+      // console.log('key',this.contacts[this.chatIndex].messages, this.getDate());
       this.contacts[this.chatIndex].messages[this.contacts[this.chatIndex].messages.length]
       this.stampDateTimeCompareNumb(this.chatIndex, this.contacts[this.chatIndex].messages.length - 1)
       this.inMessage = '';
@@ -213,7 +213,7 @@ createApp({
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
       this.stampDateTimeCompareNumb(this.chatIndex, this.contacts[this.chatIndex].messages.length - 1);
-      console.log('key',this.contacts[this.chatIndex].messages);
+      console.log('messaggi questo contatto',this.contacts[this.chatIndex].messages);
       this.stampCompare()
       this.sortContacts();
       this.activeChat(0);
@@ -231,54 +231,54 @@ createApp({
     getTime(){
       const now = new Date();
       time = now.toLocaleTimeString()
-      console.log(time)
+      // console.log(time)
       return time
     },
 
     getDate(){
       const now = new Date();
       date = now.toLocaleDateString()
-      console.log(date)
+      // console.log(date)
       return date
     },
 
     stampDateTimeCompareNumb(contactInd,messageIndex){
 
       dataIn = this.contacts[contactInd].messages[messageIndex].date;
+
       dataTime = dataIn.split(' ')
+      date = dataTime[0]
       time = dataTime[1]
+
       TimeForCompare = time.split(':')
       hour = TimeForCompare[0]
       min = TimeForCompare[1]
       sec = TimeForCompare[2]
 
-      timeCompare = parseInt(hour + min + sec)
-      date = dataTime[0]
       dateForCompare = date.split('/')
       day = dateForCompare[0]
-
       mount = '0'
       if (parseInt(dateForCompare[1]) < 10 ){
         mount = '0' + dateForCompare[1]
       }else{mount = dateForCompare[1]};
-
       year = dateForCompare[2]
 
-      compareInd = parseInt(year + mount + day + hour + min + sec)
+      compareInd = parseInt(year + mount + day + hour + min + sec);
+
       this.contacts[contactInd].messages[messageIndex].compareInd = compareInd
       
-      console.log(this.contacts[contactInd].messages[messageIndex],compareInd )
+      // console.log(this.contacts[contactInd].messages[messageIndex],compareInd )
     },
 
     stampCompare(){
-      console.log()
+      // console.log()
       for (let conta = 0; conta < this.contacts.length ; conta++) {
-        console.log(conta)
         for (let mes = 0; mes < this.contacts[conta].messages.length ; mes++) {
-          console.log('mes',mes)
+          console.warn('stamps')
+          // console.log('contact',conta,this.contacts[conta].name, 'message',mes)
           this.stampDateTimeCompareNumb(conta,mes)        
         }       
-      }
+      } console.log('stamped',this.contacts)
     },
 
     sortContacts(){
