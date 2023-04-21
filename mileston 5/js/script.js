@@ -208,13 +208,13 @@ createApp({
     autoAnswer(){
       R = Math.floor(Math.random()* this.autoAnswers.length)
       message = this.autoAnswers[R] ;
-      date = this.getDate() +' '+ this.getTime() ;
+      date = this.getDate() +' ' + this.getTime() ;
       status = 'received';
       outMessage = {date,message,status};
       this.contacts[this.chatIndex].messages.push(outMessage);
       this.stampDateTimeCompareNumb(this.chatIndex, this.contacts[this.chatIndex].messages.length - 1);
       console.log('messaggi questo contatto',this.contacts[this.chatIndex].messages);
-      this.stampCompare()
+      // this.stampCompare()
       this.sortContacts();
       this.activeChat(0);
     },

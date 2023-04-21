@@ -65,6 +65,7 @@
             <div class="chat_info debug">
               <div class="chat_name_last_msg debug">
                 <h3>{{contact.name}}</h3>
+                <!-- è qua che si blocca tutto se cancelli ultimo messaggio, serve un controllo prima -->
                 <span>{{contact.messages[contact.messages.length - 1].message}}</span>
               </div>
               <div class="chat_date debug">
